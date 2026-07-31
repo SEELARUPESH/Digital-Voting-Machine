@@ -1,0 +1,642 @@
+$date
+	Fri Jul 31 17:50:59 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module voting_tb $end
+$var wire 7 ! seg [6:0] $end
+$var wire 8 " countD [7:0] $end
+$var wire 8 # countC [7:0] $end
+$var wire 8 $ countB [7:0] $end
+$var wire 8 % countA [7:0] $end
+$var reg 2 & candidate [1:0] $end
+$var reg 1 ' clk $end
+$var reg 1 ( reset $end
+$var reg 1 ) show_result $end
+$var reg 1 * vote_button $end
+$scope module DUT $end
+$var wire 2 + candidate [1:0] $end
+$var wire 1 ' clk $end
+$var wire 1 ( reset $end
+$var wire 1 ) show_result $end
+$var wire 1 * vote_button $end
+$var wire 4 , winner [3:0] $end
+$var wire 7 - seg [6:0] $end
+$var wire 1 . result_enable $end
+$var wire 8 / memD [7:0] $end
+$var wire 8 0 memC [7:0] $end
+$var wire 8 1 memB [7:0] $end
+$var wire 8 2 memA [7:0] $end
+$var wire 1 3 debounced_vote $end
+$var wire 1 4 count_enable $end
+$var wire 8 5 countD [7:0] $end
+$var wire 8 6 countC [7:0] $end
+$var wire 8 7 countB [7:0] $end
+$var wire 8 8 countA [7:0] $end
+$scope module DB $end
+$var wire 1 * button $end
+$var wire 1 ' clk $end
+$var wire 1 ( reset $end
+$var reg 1 3 button_out $end
+$var reg 3 9 shift_reg [2:0] $end
+$upscope $end
+$scope module FSM $end
+$var wire 1 ' clk $end
+$var wire 1 ( reset $end
+$var wire 1 ) show_result $end
+$var wire 1 3 vote_enable $end
+$var parameter 2 : IDLE $end
+$var parameter 2 ; SHOW_RESULT $end
+$var parameter 2 < STORE_VOTE $end
+$var parameter 2 = WAIT_VOTE $end
+$var reg 1 4 count_enable $end
+$var reg 2 > current_state [1:0] $end
+$var reg 2 ? next_state [1:0] $end
+$var reg 1 . result_enable $end
+$upscope $end
+$scope module MEM $end
+$var wire 1 ' clk $end
+$var wire 1 ( reset $end
+$var wire 1 4 store_enable $end
+$var wire 8 @ countD_in [7:0] $end
+$var wire 8 A countC_in [7:0] $end
+$var wire 8 B countB_in [7:0] $end
+$var wire 8 C countA_in [7:0] $end
+$var reg 8 D countA_mem [7:0] $end
+$var reg 8 E countB_mem [7:0] $end
+$var reg 8 F countC_mem [7:0] $end
+$var reg 8 G countD_mem [7:0] $end
+$upscope $end
+$scope module SSD $end
+$var wire 4 H digit [3:0] $end
+$var reg 7 I seg [6:0] $end
+$upscope $end
+$scope module VC $end
+$var wire 2 J candidate [1:0] $end
+$var wire 1 ' clk $end
+$var wire 1 ( reset $end
+$var wire 1 4 vote_enable $end
+$var reg 8 K countA [7:0] $end
+$var reg 8 L countB [7:0] $end
+$var reg 8 M countC [7:0] $end
+$var reg 8 N countD [7:0] $end
+$upscope $end
+$scope module WL $end
+$var wire 8 O countA [7:0] $end
+$var wire 8 P countB [7:0] $end
+$var wire 8 Q countC [7:0] $end
+$var wire 8 R countD [7:0] $end
+$var reg 4 S winner [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1 =
+b10 <
+b11 ;
+b0 :
+$end
+#0
+$dumpvars
+b1 S
+b0 R
+b0 Q
+b0 P
+b0 O
+b0 N
+b0 M
+b0 L
+b0 K
+b0 J
+b1111001 I
+b1 H
+b0 G
+b0 F
+b0 E
+b0 D
+b0 C
+b0 B
+b0 A
+b0 @
+b0 ?
+b0 >
+b0 9
+b0 8
+b0 7
+b0 6
+b0 5
+04
+03
+b0 2
+b0 1
+b0 0
+b0 /
+0.
+b1111001 -
+b1 ,
+b0 +
+0*
+0)
+1(
+0'
+b0 &
+b0 %
+b0 $
+b0 #
+b0 "
+b1111001 !
+$end
+#5000
+1'
+#10000
+0'
+#15000
+1'
+#20000
+0'
+1*
+0(
+#25000
+b1 9
+1'
+#30000
+0'
+#35000
+b11 9
+1'
+#40000
+0'
+#45000
+b111 9
+1'
+#50000
+0'
+#55000
+b10 ?
+13
+1'
+#60000
+0'
+0*
+#65000
+14
+b1 ?
+b10 >
+b110 9
+1'
+#70000
+0'
+#75000
+04
+b100 9
+b1 >
+b1 %
+b1 8
+b1 C
+b1 K
+1'
+#80000
+0'
+#85000
+b0 9
+1'
+#90000
+0'
+#95000
+b0 ?
+03
+1'
+#100000
+0'
+1*
+b1 &
+b1 +
+b1 J
+#105000
+b0 >
+b1 9
+1'
+#110000
+0'
+#115000
+b11 9
+1'
+#120000
+0'
+#125000
+b111 9
+1'
+#130000
+0'
+#135000
+b10 ?
+13
+1'
+#140000
+0'
+0*
+#145000
+14
+b1 ?
+b10 >
+b110 9
+1'
+#150000
+0'
+#155000
+04
+b100 9
+b1 >
+b1 $
+b1 7
+b1 B
+b1 L
+b1 2
+b1 D
+b1 O
+1'
+#160000
+0'
+#165000
+b0 9
+1'
+#170000
+0'
+#175000
+b0 ?
+03
+1'
+#180000
+0'
+1*
+b10 &
+b10 +
+b10 J
+#185000
+b0 >
+b1 9
+1'
+#190000
+0'
+#195000
+b11 9
+1'
+#200000
+0'
+#205000
+b111 9
+1'
+#210000
+0'
+#215000
+b10 ?
+13
+1'
+#220000
+0'
+0*
+#225000
+14
+b1 ?
+b10 >
+b110 9
+1'
+#230000
+0'
+#235000
+04
+b100 9
+b1 >
+b1 #
+b1 6
+b1 A
+b1 M
+b1 1
+b1 E
+b1 P
+1'
+#240000
+0'
+#245000
+b0 9
+1'
+#250000
+0'
+#255000
+b0 ?
+03
+1'
+#260000
+0'
+1*
+b11 &
+b11 +
+b11 J
+#265000
+b0 >
+b1 9
+1'
+#270000
+0'
+#275000
+b11 9
+1'
+#280000
+0'
+#285000
+b111 9
+1'
+#290000
+0'
+#295000
+b10 ?
+13
+1'
+#300000
+0'
+0*
+#305000
+14
+b1 ?
+b10 >
+b110 9
+1'
+#310000
+0'
+#315000
+04
+b100 9
+b1 >
+b1 "
+b1 5
+b1 @
+b1 N
+b1 0
+b1 F
+b1 Q
+1'
+#320000
+0'
+#325000
+b0 9
+1'
+#330000
+0'
+#335000
+b0 ?
+03
+1'
+#340000
+0'
+1*
+b0 &
+b0 +
+b0 J
+#345000
+b0 >
+b1 9
+1'
+#350000
+0'
+#355000
+b11 9
+1'
+#360000
+0'
+#365000
+b111 9
+1'
+#370000
+0'
+#375000
+b10 ?
+13
+1'
+#380000
+0'
+0*
+#385000
+14
+b1 ?
+b10 >
+b110 9
+1'
+#390000
+0'
+#395000
+04
+b100 9
+b1 >
+b10 %
+b10 8
+b10 C
+b10 K
+b1 /
+b1 G
+b1 R
+1'
+#400000
+0'
+#405000
+b0 9
+1'
+#410000
+0'
+#415000
+b0 ?
+03
+1'
+#420000
+0'
+1*
+#425000
+b0 >
+b1 9
+1'
+#430000
+0'
+#435000
+b11 9
+1'
+#440000
+0'
+#445000
+b111 9
+1'
+#450000
+0'
+#455000
+b10 ?
+13
+1'
+#460000
+0'
+0*
+#465000
+14
+b1 ?
+b10 >
+b110 9
+1'
+#470000
+0'
+#475000
+04
+b100 9
+b1 >
+b11 %
+b11 8
+b11 C
+b11 K
+b10 2
+b10 D
+b10 O
+1'
+#480000
+0'
+#485000
+b0 9
+1'
+#490000
+0'
+#495000
+b0 ?
+03
+1'
+#500000
+0'
+1*
+b10 &
+b10 +
+b10 J
+#505000
+b0 >
+b1 9
+1'
+#510000
+0'
+#515000
+b11 9
+1'
+#520000
+0'
+#525000
+b111 9
+1'
+#530000
+0'
+#535000
+b10 ?
+13
+1'
+#540000
+0'
+0*
+#545000
+14
+b1 ?
+b10 >
+b110 9
+1'
+#550000
+0'
+#555000
+04
+b100 9
+b1 >
+b10 #
+b10 6
+b10 A
+b10 M
+b11 2
+b11 D
+b11 O
+1'
+#560000
+0'
+#565000
+b0 9
+1'
+#570000
+0'
+#575000
+b0 ?
+03
+1'
+#580000
+0'
+1)
+#585000
+b11 ?
+b0 >
+1'
+#590000
+0'
+#595000
+1.
+b11 >
+1'
+#600000
+0'
+#605000
+1'
+#610000
+0'
+#615000
+1'
+#620000
+0'
+#625000
+1'
+#630000
+0'
+#635000
+1'
+#640000
+0'
+#645000
+1'
+#650000
+0'
+#655000
+1'
+#660000
+0'
+#665000
+1'
+#670000
+0'
+#675000
+1'
+#680000
+b0 ?
+0'
+0)
+#685000
+0.
+b0 >
+1'
+#690000
+0'
+#695000
+1'
+#700000
+0'
+#705000
+1'
+#710000
+0'
+#715000
+1'
+#720000
+0'
+#725000
+1'
+#730000
+0'
