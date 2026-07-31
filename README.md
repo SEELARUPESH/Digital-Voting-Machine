@@ -6,36 +6,66 @@
 ![Waveform](https://img.shields.io/badge/Waveform-GTKWave-red)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
----
-
-## 📖 Project Overview
-
-This project implements an **FPGA-Based Digital Voting Machine** using **Verilog HDL**. The system records votes for four candidates, securely stores vote counts using a simulated **EEPROM/Flash memory model**, determines the winning candidate through dedicated winner logic, and displays the winner on a **7-Segment Display**.
-
-The design follows a modular architecture and is verified through simulation using **Icarus Verilog** and **GTKWave**.
+<p align="center">
+  <img src="IMAGES/architecture.png" width="850">
+</p>
 
 ---
 
-## ✨ Features
+# 📖 Project Overview
 
-- ✅ FPGA-Based Digital Voting Machine
-- ✅ Finite State Machine (FSM) Control
-- ✅ Four Candidate Voting System
-- ✅ Push Button Debouncing
-- ✅ Secure EEPROM/Flash Memory Simulation
-- ✅ Vote Counter Module
-- ✅ Automatic Winner Detection
-- ✅ 7-Segment Display Driver
-- ✅ Modular Verilog HDL Design
-- ✅ Functional Simulation using Icarus Verilog
-- ✅ Waveform Verification using GTKWave
+This project presents an **FPGA-Based Digital Voting Machine** designed using **Verilog HDL**. The system allows voting for four candidates, securely stores vote counts using a simulated **EEPROM/Flash memory model**, determines the winning candidate using dedicated winner logic, and displays the winner on a **7-Segment Display**.
+
+The design follows a modular architecture based on a **Finite State Machine (FSM)** and is verified through functional simulation using **Icarus Verilog** and **GTKWave**.
+
+---
+
+# 📌 Project Status
+
+- ✅ RTL Design Completed
+- ✅ Testbench Developed
+- ✅ Functional Simulation Verified
+- ✅ GTKWave Waveform Generated
+- ✅ Documentation Completed
+- ✅ GitHub Repository Published
+
+---
+
+# 📋 Project Specifications
+
+| Specification | Details |
+|--------------|---------|
+| Design Language | Verilog HDL |
+| Platform | FPGA |
+| Candidates Supported | 4 |
+| Controller | Finite State Machine (FSM) |
+| Vote Storage | EEPROM/Flash Memory Model |
+| Display | 7-Segment Display |
+| Verification | Testbench Simulation |
+| Simulator | Icarus Verilog |
+| Waveform Viewer | GTKWave |
+
+---
+
+# ✨ Features
+
+- FPGA-Based Digital Voting Machine
+- Finite State Machine (FSM) Control
+- Four-Candidate Voting System
+- Push Button Debouncing
+- Secure EEPROM/Flash Memory Simulation
+- Individual Vote Counters
+- Automatic Winner Detection
+- 7-Segment Display Driver
+- Modular Verilog HDL Design
+- Functional Simulation and Waveform Verification
 
 ---
 
 # 🏗️ System Architecture
 
 <p align="center">
-<img src="IMAGES/architecture.png" width="700">
+<img src="IMAGES/architecture.png" width="750">
 </p>
 
 ---
@@ -43,7 +73,7 @@ The design follows a modular architecture and is verified through simulation usi
 # 📊 Block Diagram
 
 <p align="center">
-<img src="IMAGES/block_diagram.png" width="700">
+<img src="IMAGES/block_diagram.png" width="750">
 </p>
 
 ---
@@ -51,8 +81,35 @@ The design follows a modular architecture and is verified through simulation usi
 # 🔄 FSM State Diagram
 
 <p align="center">
-<img src="IMAGES/fsm_diagram.png" width="700">
+<img src="IMAGES/fsm_diagram.png" width="650">
 </p>
+
+---
+
+# ⚙️ Working Principle
+
+1. The voter selects one of the four candidates.
+2. The Vote Button is pressed.
+3. The Debounce Module removes switch bouncing.
+4. The FSM validates the vote request.
+5. The Vote Counter increments the selected candidate's vote.
+6. The updated vote count is stored in the Secure Memory module.
+7. When the **Show Result** button is pressed, the Winner Logic compares all vote counts.
+8. The winning candidate ID is displayed on the **7-Segment Display**.
+
+---
+
+# 🧩 RTL Modules
+
+| Module | Function |
+|----------|----------|
+| debounce.v | Removes switch bounce from the vote button |
+| vote_fsm.v | Controls the voting sequence using an FSM |
+| vote_counter.v | Maintains vote counts for each candidate |
+| secure_memory.v | Simulates EEPROM/Flash memory storage |
+| winner_logic.v | Determines the candidate with the highest votes |
+| seven_segment.v | Drives the 7-Segment Display |
+| top.v | Integrates all modules into the complete system |
 
 ---
 
@@ -67,12 +124,12 @@ Digital-Voting-Machine
 │
 ├── RTL
 │   ├── debounce.v
-│   ├── secure_memory.v
-│   ├── seven_segment.v
-│   ├── top.v
 │   ├── vote_counter.v
 │   ├── vote_fsm.v
-│   └── winner_logic.v
+│   ├── secure_memory.v
+│   ├── winner_logic.v
+│   ├── seven_segment.v
+│   └── top.v
 │
 ├── TB
 │   └── voting_tb.v
@@ -98,49 +155,22 @@ Digital-Voting-Machine
 
 ---
 
-# 🧩 RTL Modules
-
-| Module | Description |
-|----------|-------------|
-| debounce.v | Removes switch bouncing from the vote button |
-| vote_fsm.v | Controls the voting sequence using an FSM |
-| vote_counter.v | Maintains vote counts for four candidates |
-| secure_memory.v | Simulates EEPROM/Flash memory storage |
-| winner_logic.v | Determines the winning candidate |
-| seven_segment.v | Drives the 7-Segment Display |
-| top.v | Top-level integration of all modules |
-
----
-
-# ⚙️ Working Principle
-
-1. The voter selects one of the four candidates.
-2. The vote button is pressed.
-3. The Debounce Module removes switch bouncing.
-4. The FSM validates the vote.
-5. The Vote Counter updates the selected candidate's count.
-6. The Secure Memory module stores the updated vote count.
-7. When the **Show Result** button is pressed, the Winner Logic determines the candidate with the highest votes.
-8. The winning candidate ID is displayed on the **7-Segment Display**.
-
----
-
 # 📈 Simulation Results
 
-The design was successfully verified using **Icarus Verilog**.
+The complete design was verified using **Icarus Verilog**.
 
-Simulation confirms:
+Simulation successfully demonstrated:
 
 - Correct vote counting
-- Proper FSM transitions
+- Proper FSM state transitions
 - Debounce functionality
 - Secure vote storage
-- Accurate winner detection
+- Winner determination
 - Correct 7-Segment display output
 
 ---
 
-## 📷 Waveform Output
+# 📷 Simulation Waveform
 
 <p align="center">
 <img src="IMAGES/waveform.png" width="900">
@@ -159,7 +189,7 @@ Simulation confirms:
 
 ---
 
-# ▶️ How to Run
+# ▶️ Running the Simulation
 
 ### Compile
 
@@ -173,7 +203,7 @@ iverilog -g2012 -o voting_sim RTL/*.v TB/voting_tb.v
 vvp voting_sim
 ```
 
-### View Waveform
+### Open Waveform
 
 ```bash
 gtkwave voting.vcd
@@ -181,7 +211,7 @@ gtkwave voting.vcd
 
 ---
 
-# 📌 Applications
+# 🎯 Applications
 
 - Electronic Voting Systems
 - FPGA Learning Projects
@@ -196,10 +226,10 @@ gtkwave voting.vcd
 - LCD/OLED Display Interface
 - Biometric Voter Authentication
 - Password-Protected Administrator Mode
-- Real EEPROM Integration
+- External EEPROM Integration
 - FPGA Board Implementation
 - Vote Encryption
-- Remote Monitoring
+- Remote Result Monitoring
 
 ---
 
@@ -207,13 +237,12 @@ gtkwave voting.vcd
 
 **Seela Rupesh**
 
-**B.Tech – Electronics and Communication Engineering**
+B.Tech – Electronics and Communication Engineering
 
 Pragati Engineering College
 
-GitHub: https://github.com/SEELARUPESH
-
-LinkedIn: https://www.linkedin.com/in/seela-rupesh-168a712b8
+- GitHub: https://github.com/SEELARUPESH
+- LinkedIn: https://www.linkedin.com/in/seela-rupesh-168a712b8
 
 ---
 
@@ -223,4 +252,6 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## ⭐ If you found this project useful, consider giving it a Star!
+## ⭐ Support
+
+If you found this project useful or learned something from it, consider giving this repository a **Star ⭐**.
